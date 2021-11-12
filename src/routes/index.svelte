@@ -23,9 +23,9 @@
 </script>
 
 <div class="container">
-	<div class="item" id="name">
+	<div id="name">
 		{#if data}
-			{data.noun}<span>{data.name}</span>{data.number}
+			{data.noun} <span>{data.name}</span> {data.number}
 		{:else}
 			...
 		{/if}
@@ -50,10 +50,18 @@
 		font-family: valorant, sans-serif;
 		font-size: max(7vw, 5.25rem);
 		color: #ff4654;
+		margin-bottom: 5vh;
 	}
 
 	span {
 		color: rgb(180, 180, 180);
+	}
+
+	@media (max-width: 480px) {
+		#name {
+			font-size: max(7vw, 4rem);
+			overflow-wrap: normal;
+		}
 	}
 
 	.container {
