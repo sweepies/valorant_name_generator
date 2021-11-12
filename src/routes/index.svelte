@@ -10,22 +10,14 @@
 		data = null;
 		const res = await fetch("/api/generate");
 		data = await res.json();
-
-		const listener = (ev) => {
-			ev.clipboardData.setData('text/plain', `${data.noun}${data.name}${data.number}`)
-			ev.preventDefault()
-		}
-		const name = document.getElementById("name");
-
-		name.removeEventListener("copy", listener)
-		name.addEventListener("copy", listener)
 	}
+
 </script>
 
 <div class="container">
 	<div id="name">
 		{#if data}
-			{data.noun} <span>{data.name}</span> {data.number}
+			{data.noun}<wbr><span>{data.name}</span><wbr>{data.number}
 		{:else}
 			...
 		{/if}
@@ -59,8 +51,8 @@
 
 	@media (max-width: 480px) {
 		#name {
-			font-size: max(7vw, 4rem);
-			overflow-wrap: normal;
+			overflow-wrap: anywhere;
+			font-size: 16.5vw;
 		}
 	}
 
@@ -71,10 +63,5 @@
 		margin-top: 30vh;
 		flex-direction: column;
 		align-content: space-between;
-	}
-
-	.item {
-		display: flex;
-		margin-bottom: 5vh;
 	}
 </style>
