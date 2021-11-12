@@ -10,6 +10,15 @@
 		data = null;
 		const res = await fetch("/api/generate");
 		data = await res.json();
+
+		const listener = (ev) => {
+			ev.clipboardData.setData('text/plain', `${data.noun}${data.name}${data.number}`)
+			ev.preventDefault()
+		}
+		const name = document.getElementById("name");
+
+		name.removeEventListener("copy", listener)
+		name.addEventListener("copy", listener)
 	}
 </script>
 
