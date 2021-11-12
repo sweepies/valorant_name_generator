@@ -8,10 +8,10 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess({
 		sass: {
-		  sync: true,
-		  implementation: sass,
+			sync: true,
+			implementation: sass,
 		},
-	  }),
+	}),
 
 	kit: {
 		target: '#app',
